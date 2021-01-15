@@ -57,25 +57,43 @@
 // (m >= 45 && m <= 59) console.log( h ':' m-45 )
 // (m >= 0 && m <= 44) console.log( h-1 ':' m+15)
 
-function getAlarm(H, M) {
-    if (H < 0 && H > 23) return;
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+let input = []
+rl.on("line", (line) => { 
+  input = line.split(" ");
+    
+    let H = parseInt(input[0]);
+    let M = parseInt(input[1]);
+    
+    if (H < 0 || H > 23) 
+         process.exit();
   
-    if (M < 0 && M > 59) return;
+    if (M < 0 || M > 59) 
+        process.exit();
   
-    if (H > 0 && H <= 23 && M >= 45 && M <= 59) {
+  
+    if ((H >= 0 && H <= 23) && (M >= 45 && M <= 59)) {
       let minus = M - 45;
-      console.log(H + ":" + minus);
-    } else if (H > 0 && H <= 23 && M >= 0 && M <= 44) {
+      console.log(H + " " + minus);
+    } else if ((H > 0 && H <= 23) && (M >= 0 && M <= 44)) {
       let add = M + 15;
       let minus1 = H - 1;
-      console.log(minus1 + ":" + add);
-    } else if (H === 0 && M >= 45 && M <= 59) {
+      console.log(minus1 + " " + add);
+    } else if (H === 0 && (M >= 45 && M <= 59)) {
       let minus2 = M - 45;
-      console.log(23 + ":" + minus2);
+      console.log( H + " " + minus2);
     } else if (H === 0 && M >= 0 && M <= 44) {
       let add1 = M + 15;
-      console.log(23 + ":" + add1);
+      console.log(23 + " " + add1);
     }
-  }
-  
-  getAlarm(9, 47);
+}).on("close", () => {
+    
+
+    process.exit();
+    
+});
