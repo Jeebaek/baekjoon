@@ -19,18 +19,29 @@
 // }  -> 1부터 100까지 더하는 자바스크립트 문법 검색함
 
 
-function getNumber(n) {
-
-    if (n < 1 || n > 10000) {
-      return;
-    }
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+ 
+let input = [];
+rl.on("line", (line) => { 
+    input.push(line);
+    
+   let n = parseInt(input[0]);
+     
+   if (n < 1 || n > 10000) 
+      process.exit();
   
     let sum = 0;
     for(let i = 1; i <= n; i++) {
       sum = sum + i
     }
   
-      console.log(sum)
-  }
+      console.log(sum)  
   
-  getNumber()
+}).on("close", () => {
+
+  process.exit();
+});
