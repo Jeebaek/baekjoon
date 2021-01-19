@@ -13,22 +13,18 @@
 // 5에서 1로 1씩 빼는 반복문을 만드니 입력이 역순으로 나오게 됨.. 그래서 다시 1씩 증가하면서 n값에서 멈추도록 함
 // n의 조건은 (1 <= n <= 100,000 )
 
-function getNumber(n) {
-    if (n < 1 || n > 100000) {
-      return;
-    }
-  
-    var arrNumber = new Array();
-  
-    for (var i = 1; i <= n; i++) {
-      arrNumber[i] = i;
-    }
-  
-    for (var i = 1; i < arrNumber.length; i++) {
-      console.log(arrNumber[i]);
-    }
-  }
-  
-  getNumber();
+
+let input = Number(require('fs').readFileSync('/dev/stdin').toString());
+
+let answer = '';
+if (input < 1 || input > 100000) {
+    return;
+}
+
+for (let i = 1; i <= input; i++) {
+    answer += i + "\n";
+}
+
+console.log(answer);
   
   
