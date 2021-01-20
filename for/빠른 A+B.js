@@ -9,32 +9,26 @@
 // A B)  ->     A+B)
 
 
-function getNumber(T, A, B) {
-    if (T > 1000000) {
-      return;
-    }
-  
-    if (A < 1 || A > 1000) {
-      return;
-    }
-  
-    if (B < 1 || B > 1000) {
-      return;
-    }
-  
-  
-    var array = [];
-    var array = array.push(A+B);
-    array.split(" ");{
-  
-    }
-  
-    for (var i = 1; i <= T; i++) {
-      console.log(A + B);
-    }
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+ 
+let answer = '';
+rl.on('line', line => {
+  const input = line.split(' ');
+
+  if(input.length === 2) {
+    const A = parseInt(input[0]);
+    const B = parseInt(input[1]);
+     if(A < 1 || A > 1000 || B < 1 || B > 1000)
+        process.exit();  
+    answer += A+B + '\n';
   }
-  
-  }
-  
-  getNumber(2, 5, 3);
+}).on('close', () => {
+  console.log(answer);
+  process.exit();
+})
+       
   
