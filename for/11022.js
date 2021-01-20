@@ -27,6 +27,7 @@ rl.on('line', line => {
     result += `Case #${i}: ${A} + ${B} = ${A+B}\n`;
 //   이 부분에서 계속 안돼서 찾아보니 숫자나 문자를 변수와 결합할 때에는 초기값을 지정해줘야 함 -> let result = ' ';
 //  이후 result += `Case #${i}: ${A} + ${B} = ${A+B}\n`; 백틱(`) 을 이용해서 어떻게 출력되어야 하는지 쓰고 result에 
+//  Operator: x += y Meaning:  x  = x + y    
   }
   console.log(result);
   process.exit();
