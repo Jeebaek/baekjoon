@@ -4,7 +4,25 @@
 
 
 
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+ 
 
-const input = require('fs').readFileSync('dev/stdin').toString().split(' ');
+let input = [];
+rl.on('line', function (line) {
+  input = line.split(' ')
 
-console.log(Number(input[0]) * Number(input[1]));
+    let A = parseInt(input[0])
+    let B = parseInt(input[1])
+    if ( A <= 0 || A >= 10 || B <=0 || B >= 10)
+        process.exit()
+    
+    console.log(A*B);  
+  
+}).on("close", () => {
+
+  process.exit();
+});
