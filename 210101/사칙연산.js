@@ -2,13 +2,29 @@
 // 두 자연수 A와 B가 주어진다. (1 ≤ A, B ≤ 10,000)
 // 첫째 줄에 A+B, 둘째 줄에 A-B, 셋째 줄에 A*B, 넷째 줄에 A/B, 다섯째 줄에 A%B를 출력한다.
 
-const input = require('fs').readFileSync('dev/stdin').toString().split(' ');
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+ 
 
-const num1 = Number(input[0])
-const num2 = Number(input[1])
+let input = [];
+rl.on('line', function (line) {
+  input = line.split(' ')
 
-console.log(num1 + num2);
-console.log(num1 - num2);
-console.log(num1 * num2);
-console.log(Math.floor(num1 / num2));
-console.log(num1 % num2);
+    let A = parseInt(input[0])
+    let B = parseInt(input[1])
+    if ( A < 1 || A > 10000 || B < 1 || B > 10000)
+        process.exit()
+    
+    console.log(A+B);
+    console.log(A-B);
+    console.log(A*B);
+    console.log(Math.floor(A/B));
+    console.log(A%B);
+  
+}).on("close", () => {
+
+  process.exit();
+});
